@@ -45,7 +45,7 @@ library(MBE702report)
 
 To generate a report simply call the function below with the path to the MBE702 survey .csv file.
 ```
-MBE702report::build_report(~/Desktop/MBE702/2019/Fall/test.csv
+MBE702report::build_report(~/Desktop/MBE702/2019/Fall/test.csv)
 ```
 
 ### Author
