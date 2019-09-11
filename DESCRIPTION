@@ -2,10 +2,8 @@ Package: MBE702report
 Type: Package
 Title: a report generator for MBE702
 Version: 0.1.0
-Author: Nicholas Kron
 Authors@R: c(person("Nicholas Kron", "Developer", role = c("aut", "cre"),
                      email = "n.kron@umiami.edu"))
-Author: Nicholas Kron [aut, cre]
 Maintainer: Nicholas Kron<n.kron@umiami.edu>
 Depends: R (>= 3.3.3),
 Description: Generates a PDF report from MBE702 student surveys (specifically the Fall 2019 and later variant)
@@ -15,3 +13,4 @@ URL: https://github.com/Nicholas-Kron/MBE702report
 Encoding: UTF-8
 LazyData: true
 Imports: dplyr, ggplot2, tibble, tidyr, ComplexHeatmap, circlize, stringr, grid
+RoxygenNote: 6.1.1
