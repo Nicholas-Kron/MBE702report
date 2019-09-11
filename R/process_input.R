@@ -22,10 +22,15 @@ process_input <- function(ma){
   colnames(dat) = new_names
   ratings_factor = dat[,c("Abstract","Introduction","Methods","Results_Discussion","Communication",
                           "Acknowledgments","Presentation_Skills","Slide_Quality","Questions")]
+  ratings_factor[ratings_factor == ""] = NA
   comments = dat[,c("Comment_Abstract","Comment_Introduction","Comment_Methods","Comment_Results",
                     "Comment_Communication","Comment_Acknowledgments","Comment_Skills","Comment_Slides",
                     "Comment_Questions","General_Comments")]
   IDs = dat[,"Name_or_C#"]
+  IDs = lapply(X = IDs, FUN = function(x){
+    stringr::str_replace(x,
+                         pattern = "C[0-9\\-]{2,}|[0-9\\-]{2,}",replacement = "Student")
+  })
   ratings_numeric = ratings_factor
   ratings_numeric[ratings_numeric == "Excellent"] = 4
   ratings_numeric[ratings_numeric == "Good"] = 3

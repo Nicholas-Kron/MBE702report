@@ -11,7 +11,7 @@ Depends: R (>= 3.3.3),
 Description: Generates a PDF report from MBE702 student surveys (specifically the Fall 2019 and later variant)
     Use four spaces when indenting paragraphs within the Description.
 License: GPL (>= 2)
-URL: https://www.r-project.org
+URL: https://github.com/Nicholas-Kron/MBE702report
 Encoding: UTF-8
 LazyData: true
-Imports: dplyr, ggplot2, tibble, tidyr, ComplexHeatmap
+Imports: dplyr, ggplot2, tibble, tidyr, ComplexHeatmap, circlize, stringr, grid
