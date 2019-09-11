@@ -23,12 +23,12 @@ build_report <- function(infile){
 
   ###generate R file for rmarkdown to render
   sink(Rfile)
-  cat(paste0("#'","---\n"))
-  cat(paste0("#'","title: ", "MBE702 Survey Report for ", speaker,"\n"))
-  cat(paste0("#'",'author: "MBE Student Representatives"\n'))
-  cat(paste0("#'",'date: ', talk_date,'\n'))
-  cat(paste0("#'","output: html_document\n"))
-  cat(paste0("#'","---\n"))
+  cat(paste0("#'","---\n",collapse = NULL))
+  cat(paste0("#'","title: ", "MBE702 Survey Report for ", speaker,"\n",collapse = NULL))
+  cat(paste0("#'",'author: "MBE Student Representatives"\n',collapse = NULL))
+  cat(paste0("#'",'date: ', talk_date,'\n',collapse = NULL))
+  cat(paste0("#'","output: html_document\n",collapse = NULL))
+  cat(paste0("#'","---\n", collapse = NULL))
   cat("\n" )
   cat("\n" )
   #set up chunk
