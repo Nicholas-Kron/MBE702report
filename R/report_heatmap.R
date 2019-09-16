@@ -4,6 +4,7 @@
 #' @return a heatmap of responses.
 #'
 #' @export
+#' @import ggplot2 ComplexHeatmap circlize grid
 
 
 report_heatmap <- function(dats){

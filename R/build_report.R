@@ -3,6 +3,7 @@
 #' @param infile a \code{STRING} path to where the target .csv survey results file is located
 #'
 #' @export
+#' @import ggplot2 ComplexHeatmap rmarkdown knitr stringr
 
 build_report <- function(infile){
   path = path.expand(infile)

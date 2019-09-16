@@ -5,6 +5,7 @@
 #' @return an invisible ggplot boxplot of the input data.
 #'
 #' @export
+#' @import ggplot2
 
 
 report_boxplot <- function(dats, plot = TRUE){
