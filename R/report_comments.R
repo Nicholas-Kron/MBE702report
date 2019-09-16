@@ -21,7 +21,7 @@ report_comments <- function(dats){
   l <- list(dplyr::filter(comments, section == "Comment_Abstract")$string,
             dplyr::filter(comments, section == "Comment_Introduction")$string,
             dplyr::filter(comments, section == "Comment_Methods")$string,
-            dplyr::filter(comments, section == "Comment_Results ")$string,
+            dplyr::filter(comments, section == "Comment_Results")$string,
             dplyr::filter(comments, section == "Comment_Communication")$string,
             dplyr::filter(comments, section == "Comment_Acknowledgments")$string,
             dplyr::filter(comments, section == "Comment_Skills")$string,
