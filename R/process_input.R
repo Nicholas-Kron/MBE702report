@@ -9,6 +9,7 @@
 #'    \item{\code{LIST[[4]]}}{Comments for all sections.}
 #' }
 #'
+#' @export
 
 
 process_input <- function(ma){

@@ -2,6 +2,8 @@
 #'
 #' @param dats a list object returned from \code{process_input()}
 #' @return a heatmap of responses.
+#'
+#' @export
 
 
 report_comments <- function(dats){

@@ -1,6 +1,8 @@
 #' Builds a PDF report from MBE702 response survey CSV
 #'
 #' @param infile a \code{STRING} path to where the target .csv survey results file is located
+#'
+#' @export
 
 build_report <- function(infile){
   path = path.expand(infile)

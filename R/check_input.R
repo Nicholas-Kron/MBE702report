@@ -2,6 +2,7 @@
 #'
 #' @param ma input matrix.
 #' @return returns \code{TRUE} if properly formated, \code{FALSE} if not.
+#' @export
 
 
 check_input <- function(ma){
