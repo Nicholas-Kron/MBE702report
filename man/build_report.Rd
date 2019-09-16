@@ -7,14 +7,8 @@
 build_report(infile)
 }
 \arguments{
-\item{path}{a \code{STRING} path to where the target .csv survey results file is located}
-}
-\value{
-does not return, instead it generates a PDF result file
+\item{infile}{a \code{STRING} path to where the target .csv survey results file is located}
 }
 \description{
 Builds a PDF report from MBE702 response survey CSV
-}
-\examples{
-build_report("~/Desktop/MBE702/2019/Fall/test.csv")
 }

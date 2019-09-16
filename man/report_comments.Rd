@@ -15,6 +15,3 @@ a heatmap of responses.
 \description{
 Builds a list containing Roxygen formated strings used for generating MBE702 survey results report (not for end user)
 }
-\examples{
-report_comments(ma)
-}

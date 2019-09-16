@@ -1,9 +1,6 @@
 #' Builds a PDF report from MBE702 response survey CSV
 #'
-#' @param path a \code{STRING} path to where the target .csv survey results file is located
-#' @return does not return, instead it generates a PDF result file
-#' @examples
-#' build_report("~/Desktop/MBE702/2019/Fall/test.csv")
+#' @param infile a \code{STRING} path to where the target .csv survey results file is located
 
 build_report <- function(infile){
   path = path.expand(infile)
@@ -19,7 +16,7 @@ build_report <- function(infile){
   raw = read.csv(path)
   processed = MBE702report::process_input(raw)
   comments = MBE702report::report_comments(processed)
-  talk_date = stringr::str_extract(test_drown[1,1], "[0-9]{4}/[0-9]{2}/[0-9]{2}")
+  talk_date = stringr::str_extract(raw[1,1], "[0-9]{4}/[0-9]{2}/[0-9]{2}")
 
   ###generate R file for rmarkdown to render
   sink(Rfile)

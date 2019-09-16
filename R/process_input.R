@@ -3,14 +3,13 @@
 #' @param ma input matrix.
 #' @return an invisible \code{LIST} with 4 items.
 #' \describe{
-#'   \item{\code{LIST[[1]]}} {Respondant IDs, either C# or faculty name.}
-#'   \item{\code{LIST[[2]]}} {Raw ratings on a scale from "Not present" to "Excellent".}
-#'   \item{\code{LIST[[3]]}} {Numeric equivalent to \code{LIST[[2]]}.}
-#'   \item{\code{LIST[[4]]}} {Comments for all sections.}
+#'    \item{\code{LIST[[1]]}}{Respondant IDs, either C# or faculty name.}
+#'    \item{\code{LIST[[2]]}}{Raw ratings on a scale from "Not present" to "Excellent".}
+#'    \item{\code{LIST[[3]]}}{Numeric equivalent to \code{LIST[[2]]}.}
+#'    \item{\code{LIST[[4]]}}{Comments for all sections.}
 #' }
 #'
-#' @examples
-#' process_input(ma)
+
 
 process_input <- function(ma){
   new_names = c("Timestamp","Name_or_C#","Abstract","Comment_Abstract","Introduction",
@@ -29,7 +28,7 @@ process_input <- function(ma){
   IDs = dat[,"Name_or_C#"]
   IDs = lapply(X = IDs, FUN = function(x){
     stringr::str_replace(x,
-                         pattern = "C[0-9\\-]{2,}|[0-9\\-]{2,}",replacement = "Student")
+                         pattern = "[\\s][cC][0-9\\-]{2,}|[cC][0-9\\-]{2,}|[\\s0-9\\-]{2,}",replacement = "Student")
   })
   ratings_numeric = ratings_factor
   ratings_numeric[ratings_numeric == "Excellent"] = 4

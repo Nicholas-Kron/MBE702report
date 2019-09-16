@@ -10,11 +10,8 @@ check_input(ma)
 \item{ma}{input matrix.}
 }
 \value{
-\code{TRUE} if properly formated, \code{FALSE} if not.
+returns \code{TRUE} if properly formated, \code{FALSE} if not.
 }
 \description{
 Checks matrix for proper formating
-}
-\examples{
-check_input(ma)
 }

@@ -12,15 +12,12 @@ process_input(ma)
 \value{
 an invisible \code{LIST} with 4 items.
 \describe{
-  \item{\code{LIST[[1]]}} {Respondant IDs, either C# or faculty name.}
-  \item{\code{LIST[[2]]}} {Raw ratings on a scale from "Not present" to "Excellent".}
-  \item{\code{LIST[[3]]}} {Numeric equivalent to \code{LIST[[2]]}.}
-  \item{\code{LIST[[4]]}} {Comments for all sections.}
+   \item{\code{LIST[[1]]}}{Respondant IDs, either C# or faculty name.}
+   \item{\code{LIST[[2]]}}{Raw ratings on a scale from "Not present" to "Excellent".}
+   \item{\code{LIST[[3]]}}{Numeric equivalent to \code{LIST[[2]]}.}
+   \item{\code{LIST[[4]]}}{Comments for all sections.}
 }
 }
 \description{
 Breaks up input matrix into usable groupings of data.
-}
-\examples{
-process_input(ma)
 }

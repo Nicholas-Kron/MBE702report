@@ -2,8 +2,7 @@
 #'
 #' @param dats a list object returned from \code{process_input()}
 #' @return a heatmap of responses.
-#' @examples
-#' report_heatmap(ma)
+
 
 report_heatmap <- function(dats){
 IDs = dats[[1]]

@@ -17,6 +17,3 @@ an invisible ggplot boxplot of the input data.
 \description{
 Generates a boxplot from MBE702 survey data (not for end user)
 }
-\examples{
-report_boxplot(ma)
-}

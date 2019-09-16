@@ -3,8 +3,7 @@
 #' @param dats a list object returned from \code{process_input()}
 #' @param plot a \code{BOOL} to determine if to plot the result. Defaults to \code{TRUE}.
 #' @return an invisible ggplot boxplot of the input data.
-#' @examples
-#' report_boxplot(ma)
+
 
 report_boxplot <- function(dats, plot = TRUE){
 

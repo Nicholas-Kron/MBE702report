@@ -15,6 +15,3 @@ a heatmap of responses.
 \description{
 Builds a response heatmap from an MBE702 survey (not for end user)
 }
-\examples{
-report_heatmap(ma)
-}
