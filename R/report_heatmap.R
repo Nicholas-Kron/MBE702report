@@ -30,7 +30,7 @@ ht = ComplexHeatmap::Heatmap(
   row_names_gp = gpar(fontsize = 10),
   column_names_side = "top",
   col = structure(c("grey","red","yellow","darkolivegreen1","green"),
-                   names = c ("Not present", "Needs work", "Sufficient","Good","Excellent")
+                   names = c ("Not Present", "Needs work", "Sufficient","Good","Excellent")
                   ),
   bottom_annotation = c_anot,
   rect_gp = gpar(col = "white", lwd = 2),
