@@ -36,7 +36,7 @@ process_input <- function(ma){
   ratings_numeric[ratings_numeric == "Good"] = 3
   ratings_numeric[ratings_numeric == "Sufficient"] = 2
   ratings_numeric[ratings_numeric == "Needs work"] = 1
-  ratings_numeric[ratings_numeric == "Not present"] = 0
+  ratings_numeric[ratings_numeric == "Not Present"] = 0
   storage.mode(ratings_numeric) <- "numeric"
   invisible(
     list(IDs,ratings_factor,ratings_numeric,comments)
