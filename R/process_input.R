@@ -13,32 +13,30 @@
 
 
 process_input <- function(ma){
-  new_names = c("Timestamp","Name_or_C#","Abstract","Comment_Abstract","Introduction",
-                "Comment_Introduction","Methods","Comment_Methods","Results_Discussion",
-                "Comment_Results","Communication","Comment_Communication","Acknowledgments",
-                "Comment_Acknowledgments","Presentation_Skills","Comment_Skills","Slide_Quality",
-                "Comment_Slides","Questions","Comment_Questions","General_Comments")
+  new_names = c("Timestamp","Name_or_C#","explain_importance","methods","results",
+                "future_directions","take_away","strengths","improvement",
+                "research_quality","overall_quality")
   dat = as.matrix(ma)
   colnames(dat) = new_names
-  ratings_factor = dat[,c("Abstract","Introduction","Methods","Results_Discussion","Communication",
-                          "Acknowledgments","Presentation_Skills","Slide_Quality","Questions")]
-  ratings_factor[ratings_factor == ""] = NA
-  comments = dat[,c("Comment_Abstract","Comment_Introduction","Comment_Methods","Comment_Results",
-                    "Comment_Communication","Comment_Acknowledgments","Comment_Skills","Comment_Slides",
-                    "Comment_Questions","General_Comments")]
+  comments = dat[,c("take_away","strengths","improvement")]
+  comments = apply(comments, c(1,2), FUN = function(x){
+    str_replace_all(x, "[\r\n]" , "")})
   IDs = dat[,"Name_or_C#"]
   IDs = lapply(X = IDs, FUN = function(x){
     stringr::str_replace(x,
                          pattern = "[\\s][cC][0-9\\-]{2,}|[cC][0-9\\-]{2,}|[\\s0-9\\-]{2,}",replacement = "Student")
   })
-  ratings_numeric = ratings_factor
-  ratings_numeric[ratings_numeric == "Excellent"] = 4
-  ratings_numeric[ratings_numeric == "Good"] = 3
-  ratings_numeric[ratings_numeric == "Sufficient"] = 2
-  ratings_numeric[ratings_numeric == "Needs work"] = 1
-  ratings_numeric[ratings_numeric == "Not present"] = 0
+  ratings = dat[,c("explain_importance","methods","results","future_directions","research_quality","overall_quality")]
+  ratings_factor = apply(ratings, c(1,2), FUN = function(x){
+    str_remove(x, "[0-9][:] ")})
+  ratings_factor[ratings_factor == ""] = NA
+  ratings_numeric = apply(ratings, c(1,2), FUN = function(x){
+    str_remove(x, "[:] [aA-zZ ]*")})
+  ratings_numeric[ratings_factor == ""] = 0
   storage.mode(ratings_numeric) <- "numeric"
   invisible(
     list(IDs,ratings_factor,ratings_numeric,comments)
   )
 }
+
+

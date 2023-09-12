@@ -11,14 +11,13 @@
 report_boxplot <- function(dats, plot = TRUE){
 
 plot_data = tidyr::gather(as.data.frame(dats[[3]]),key = "Question", value = "Response")
-plot_data$Question <- factor(plot_data$Question,levels = c("Abstract","Introduction","Methods","Results_Discussion","Communication",
-                                                           "Acknowledgments","Presentation_Skills","Slide_Quality","Questions"))
+plot_data$Question <- factor(plot_data$Question,levels = c(plot_data$Question %>% unique()))
 p <- ggplot2::ggplot(data = plot_data, aes(x = Question, y = Response)) +
   geom_boxplot(fill = "cornflowerblue") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
         plot.title = element_text(hjust = 0.5)) +
-  labs(title = "MBE702 Seminar Survey Score Distribution", x = "Section") #+
+  labs(title = "MBE702 Seminar Survey Score Distribution", x = "Question") #+
   #scale_y_continuous(breaks = c(0,1,2,3,4), labels = c("Not present", "Needs work", "Sufficient", "Good", "Excellent"))
 
 if(plot == TRUE){
