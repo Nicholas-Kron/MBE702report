@@ -9,8 +9,15 @@
 report_comments <- function(dats){
   IDs = dats[[1]]
   comments = dats[[4]]
+  
+  strengths = comments[,2] %>% str_split(.,",") %>% unlist() %>% str_remove(., "^ ")
+  p <- ggplot(data = data.frame(x = strengths) , aes(x = x)) +
+    geom_bar(stat = "count") +
+    theme_bw() +
+    coord_flip() +
+    labs(y = "Number of Respondants", x = "Strength") 
 
-  comments <- as.data.frame(comments)
+  comments <- as.data.frame(comments[,c(1,3)])
   comments$names = IDs
   comments <- tidyr::gather(comments, key = "section", value = "comment", -c("names"))
   comments <- comments[! is.na(comments$comment),]
@@ -18,16 +25,10 @@ report_comments <- function(dats){
   comments <- comments[! comments$comment == " ",]
   comments$string = paste0("#' ","* ", comments$names," : ", comments$comment,"\n")
   comments
-  l <- list(dplyr::filter(comments, section == "Comment_Abstract")$string,
-            dplyr::filter(comments, section == "Comment_Introduction")$string,
-            dplyr::filter(comments, section == "Comment_Methods")$string,
-            dplyr::filter(comments, section == "Comment_Results")$string,
-            dplyr::filter(comments, section == "Comment_Communication")$string,
-            dplyr::filter(comments, section == "Comment_Acknowledgments")$string,
-            dplyr::filter(comments, section == "Comment_Skills")$string,
-            dplyr::filter(comments, section == "Comment_Slides")$string,
-            dplyr::filter(comments, section == "Comment_Questions")$string,
-            dplyr::filter(comments, section == "General_Comments")$string)
+  comments$section
+  l <- list(dplyr::filter(comments, section == "take_away")$string,
+            dplyr::filter(comments, section == "improvement")$string)
 
-  invisible(l)
+  invisible(list(l,p))
 }
+
